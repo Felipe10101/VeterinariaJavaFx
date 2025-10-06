@@ -1,18 +1,22 @@
 package co.edu.uniquindio.poo.veterinariajavafx.model;
 
+import java.util.LinkedList;
+
 public class Veterinaria {
     private String nombre;
     private String nit;
-    Mascota [] listMascotas;
-    Propietario [] listPropietarios;
+    private LinkedList<Mascota> mascotas;
+    private LinkedList<Propietario> propietarios;
 
-    public Veterinaria(String nombre,String nit){
+//------------------ CONSTRUCTOR ------------------------
+    public Veterinaria(String nombre, String nit){
         this.nombre = nombre;
         this.nit = nit;
-        this.listMascotas = new Mascota[10];
-        this.listPropietarios = new Propietario[10];
+        mascotas = new LinkedList<>();
+        propietarios = new LinkedList<>();
     }
 
+//------------------ GET AND SET ------------------------
     public String getNombre() {
         return nombre;
     }
@@ -27,147 +31,111 @@ public class Veterinaria {
     }
 
 
-    public boolean almacenarMascota(String nombre,String especie,String raza,int edad,String id,  ){
 
-        Mascota nuevaMascota =
-                new Mascota(nombre,especie,raza,edad,id,);
+//------------------ CRUD MASCOTA ------------------------
 
-        for(int i = 0; i < listMascotas.length; i ++){
-            if(listMascotas[i] != null && listMascotas[i].getId().equals(id)){
+    public boolean almacenarMascota(String id, String nombre, String especie, String raza, int edad, int peso, Propietario propietario) {
+
+        // Evitar duplicados
+        for (Mascota m : mascotas) {
+            if (m.getId().equals(id)) {
                 return false;
             }
         }
-        for(int i = 0; i < listMascotas.length; i ++){
-            if(listMascotas[i] == null ){
-                listMascotas[i] = nuevaMascota;
-                return true;
-            }
-        }
-        return false;
-    }
 
+        // Crear nueva mascota (debes tener clases hijas de Mascota, por ejemplo Perro o Gato)
+        // Si Mascota es abstracta, se instancia su subclase:
+        Mascota nuevaMascota = new Perro(id, nombre, especie, raza, edad, peso, propietario);
+        mascotas.add(nuevaMascota);
 
+        // Agregarla también al propietario
+        propietario.getMascotas().add(nuevaMascota);
 
-    private int obtenerPosicionMascota(String id){
-        for(int i = 0; i < listMascotas.length; i ++){
-            if(listMascotas[i] != null && listMascotas[i].getId().equals(id)){
-                return i;
-            }
-        }
-        return -1;
-    }
-
-
-    public Mascota obtenerMascota(String id){
-        int indexMascota = obtenerPosicionMascota(id);
-        if(indexMascota == -1) return null;
-
-        return listMascotas[indexMascota];
-    }
-
-
-
-    public Mascota [] obtenerListaMascotas(){
-        return listMascotas;
-    }
-
-
-
-    public boolean actualizarMascota(String nombre,String especie,String raza,int edad,String id){
-        int indexMascota = obtenerPosicionMascota(id);
-        if(indexMascota == -1) return false;
-
-        Mascota actualizarMascota = listMascotas[indexMascota];
-        actualizarMascota.setNombre(nombre);
-        actualizarMascota.setEspecie(especie);
-        actualizarMascota.setRaza(raza);
-        actualizarMascota.setEdad(edad);
         return true;
     }
 
+    public Mascota obtenerMascota(String id) {
+        for (Mascota m : mascotas) {
+            if (m.getId().equals(id)) {
+                return m;
+            }
+        }
+        return null;
+    }
 
+    public LinkedList<Mascota> obtenerListaMascotas() {
+        return mascotas;
+    }
 
-    public boolean eliminarMascota(String id){
-        int indexMascota = obtenerPosicionMascota(id);
-        if(indexMascota == -1) return false;
+    public boolean actualizarMascota(String id, String nombre, String especie, String raza, int edad, int peso) {
+        Mascota m = obtenerMascota(id);
+        if (m == null) return false;
 
-        listMascotas[indexMascota] = null;
+        m.setNombre(nombre);
+        m.setEspecie(especie);
+        m.setRaza(raza);
+        m.setEdad(edad);
+        m.setPeso(peso);
         return true;
     }
 
+    public boolean eliminarMascota(String id) {
+        Mascota m = obtenerMascota(id);
+        if (m == null) return false;
 
+        // También se elimina del propietario
+        m.getPropietario().getMascotas().remove(m);
+        mascotas.remove(m);
+        return true;
+    }
+//------------------ CRUD PROPIETARIO ------------------------
 
-
-    public boolean agregar(String nombre,String telefono,String direccion,String id){
-        nuevo =
-                new Propietario(nombre,telefono,direccion,id);
-
-        for(int i = 0; i < listPropietarios.length; i ++){
-            if (listPropietarios[i] != null && listPropietarios[i].getId().equals(id)){
-                return false;
+    public boolean agregarPropietario(String nombre, String telefono, String direccion, String puntaje) {
+        for (Propietario p : propietarios) {
+            if (p.getNombre().equalsIgnoreCase(nombre)) {
+                return false; // ya existe con ese nombre (o podrías usar otro identificador)
             }
         }
-        for(int i = 0; i < listPropietarios.length; i++){
-            if(listPropietarios[i] == null){
-                listPropietarios[i] = nuevoPropietario;
-                return true;
-            }
-        }
-        return false;
-    }
 
-
-    private int obtenerPosicionPropietario(String id){
-        for(int i = 0; i < listPropietarios.length; i++){
-            if(listPropietarios[i] != null && listPropietarios[i].getId().equals(id)){
-                return i;
-            }
-        }
-        return -1;
-    }
-
-
-    public Propietario obtenerPropietario(String id){
-        int indexPropietario = obtenerPosicionPropietario(id);
-        if(indexPropietario == -1) return null;
-
-        return listPropietarios[indexPropietario];
-    }
-
-
-
-    public Propietario[] obtenerListaPropietarios(){
-        return listPropietarios;
-    }
-
-
-
-    public boolean actualizarPropietario(String nombre,String telefono,String direccion,String id){
-
-        int indexPropietario = obtenerPosicionPropietario(id);
-        if(indexPropietario == -1) return false;
-
-        Propietario actualizarPropietario = listPropietarios[indexPropietario];
-
-        actualizarPropietario.setNombre(nombre);
-        actualizarPropietario.setTelefono(telefono);
-        actualizarPropietario.setDireccion(direccion);
+        Propietario nuevoPropietario = new Propietario(nombre, telefono, direccion, puntaje);
+        propietarios.add(nuevoPropietario);
         return true;
     }
 
+    public Propietario obtenerPropietario(String nombre) {
+        for (Propietario p : propietarios) {
+            if (p.getNombre().equalsIgnoreCase(nombre)) {
+                return p;
+            }
+        }
+        return null;
+    }
 
+    public LinkedList<Propietario> obtenerListaPropietarios() {
+        return propietarios;
+    }
 
-    public boolean eliminarPropietario(String id){
-        int indexPropietario = obtenerPosicionPropietario(id);
+    public boolean actualizarPropietario(String nombre, String telefono, String direccion, String puntaje) {
+        Propietario p = obtenerPropietario(nombre);
+        if (p == null) return false;
 
-        if(indexPropietario == -1) return false;
-
-        listPropietarios[indexPropietario] = null;
+        p.setTelefono(telefono);
+        p.setDireccion(direccion);
+        p.setPuntaje(puntaje);
         return true;
     }
 
+    public boolean eliminarPropietario(String nombre) {
+        Propietario p = obtenerPropietario(nombre);
+        if (p == null) return false;
 
+        // Eliminar también sus mascotas
+        mascotas.removeIf(m -> m.getPropietario().equals(p));
 
+        propietarios.remove(p);
+        return true;
+    }
+//------------------ METODOS ------------------------
     public double calcularCostoConsulta(Mascota mascota) {
         double valorBase = 30000; // valor fijo base de la consulta
         double costoFinal = valorBase;

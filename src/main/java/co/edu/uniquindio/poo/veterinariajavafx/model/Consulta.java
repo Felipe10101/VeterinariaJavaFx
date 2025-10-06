@@ -5,46 +5,37 @@ import java.time.LocalDate;
 public class Consulta {
     private String numeroConsulta;
     private LocalDate Fecha;
+
     private Mascota mascota;
-    private TipoConsulta TipoConsulto;
+    private TipoConsulta tipoConsulta;
 
-
-    public Consulta(String numeroConsulta, LocalDate fecha, Mascota mascota, TipoConsulta tipoConsulto) {
+//------------------ CONSTRUCTOR ------------------------
+    public Consulta(String numeroConsulta, LocalDate fecha, Mascota mascota, TipoConsulta tipoConsulta) {
         this.numeroConsulta = numeroConsulta;
         Fecha = fecha;
         this.mascota = mascota;
-        TipoConsulto = tipoConsulto;
+        this.tipoConsulta = tipoConsulta;
     }
-
-    public TipoConsulta getTipoConsulto() {
-        return TipoConsulto;
-    }
-
-    public void setTipoConsulto(TipoConsulta tipoConsulto) {
-        TipoConsulto = tipoConsulto;
-    }
-
-    public Mascota getMascota() {
-        return mascota;
-    }
-
-    public void setMascota(Mascota mascota) {
-        this.mascota = mascota;
+//------------------ GET AND SET ------------------------
+    public String getNumeroConsulta() {
+        return numeroConsulta;
     }
 
     public LocalDate getFecha() {
         return Fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
-        Fecha = fecha;
+    public Mascota getMascota() {
+        return mascota;
+    }
+    public void setMascota(Mascota mascota) {
+        this.mascota = mascota;
     }
 
-    public String getNumeroConsulta() {
-        return numeroConsulta;
+    public TipoConsulta getTipoConsulta() {
+        return tipoConsulta;
     }
-
-    public void setNumeroConsulta(String numeroConsulta) {
-        this.numeroConsulta = numeroConsulta;
+    public void setTipoConsulta(TipoConsulta tipoConsulta) {
+        this.tipoConsulta = tipoConsulta;
     }
 }

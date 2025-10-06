@@ -11,28 +11,25 @@ public abstract class Mascota {
     protected Propietario propietario;
 
 
-
+//------------------ CONSTRUCTOR ------------------------
     public Mascota(String id, String nombre, String especie,String raza, int edad, int peso, Propietario propietario) {
         this.id = id;
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
         this.peso = peso;
+        this.categoriaEdad  = categoriaEdad;
         this.propietario = propietario;
     }
 
+//------------------ GET AND SET ------------------------
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -41,31 +38,20 @@ public abstract class Mascota {
         return especie;
     }
 
-    public void setEspecie(String especie) {
-        this.especie = especie;
-    }
-
     public String getRaza() {
         return raza;
-    }
-
-    public void setRaza(String raza) {
-        this.raza = raza;
     }
 
     public int getEdad() {
         return edad;
     }
-
     public void setEdad(int edad) {
         this.edad = edad;
     }
 
-
     public int getPeso() {
         return peso;
     }
-
     public void setPeso(int peso) {
         this.peso = peso;
     }
@@ -73,7 +59,6 @@ public abstract class Mascota {
     public CategoriaEdad getCategoriaEdad() {
         return categoriaEdad;
     }
-
     public void setCategoriaEdad(CategoriaEdad categoriaEdad) {
         this.categoriaEdad = categoriaEdad;
     }
@@ -81,11 +66,11 @@ public abstract class Mascota {
     public Propietario getPropietario() {
         return propietario;
     }
-
     public void setPropietario(Propietario propietario) {
         this.propietario = propietario;
     }
 
+//------------------ TO STRING ------------------------
     @Override
     public String toString(){
         return "Mascota {\n Nombre: " + nombre + "\n Especie: " + especie + "\n Raza: " + raza + "\n Edad: " + edad + "\n Id: " + id + "\n Dueño: " + propietario.getNombre() + "\n" + "}";
