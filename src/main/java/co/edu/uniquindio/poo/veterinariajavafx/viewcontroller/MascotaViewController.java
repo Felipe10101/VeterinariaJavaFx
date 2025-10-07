@@ -15,7 +15,9 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-//hola si puidste? :D
+//hola
+//hola x2
+//hola x3
 
 public class MascotaViewController {
     MascotaController mascotaController;
@@ -155,8 +157,6 @@ public class MascotaViewController {
         if (mascota != null) {
             txtId.setText(mascota.getId());
             txtNombre.setText(mascota.getNombre());
-            txtApellido.setText(mascota.getApellido());
-            txt
         }
     }
 
