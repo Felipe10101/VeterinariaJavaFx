@@ -155,8 +155,6 @@ public class MascotaViewController {
         if (mascota != null) {
             txtId.setText(mascota.getId());
             txtNombre.setText(mascota.getNombre());
-            txtApellido.setText(mascota.getApellido());
-            txt
         }
     }
 
