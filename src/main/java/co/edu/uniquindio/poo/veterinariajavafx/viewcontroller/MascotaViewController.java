@@ -15,9 +15,6 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-//hola
-//hola x2
-//hola x3
 
 public class MascotaViewController {
     MascotaController mascotaController;
