@@ -168,7 +168,7 @@ public class Veterinaria {
         }
 
         // Incremento según la edadMeses
-        if (mascota.getEdadMesesMeses() > 10) {
+        if (mascota.getEdadMeses() > 10) {
             costoFinal += 7000; // mascotas mayores de 10 años
         } else if (mascota.getEdadMeses() < 2) {
             costoFinal += 4000; // cachorros o muy jóvenes

@@ -1,5 +1,5 @@
 package co.edu.uniquindio.poo.veterinariajavafx.model;
-
+//hola
 public abstract class Mascota {
     protected String id;
     protected String nombre;
