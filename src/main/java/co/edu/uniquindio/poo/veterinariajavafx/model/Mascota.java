@@ -12,16 +12,16 @@ public abstract class Mascota {
 
 
 //------------------ CONSTRUCTOR ------------------------
-    public Mascota(String id, String nombre, String especie,String raza, int edadMeses, double peso, Propietario propietario) {
-        this.id = id;
-        this.nombre = nombre;
-        this.raza = raza;
-        this.edadMeses = edadMeses;
-        this.peso = peso;
-        this.categoriaEdad  = categoriaEdad;
-        this.propietario = propietario;
-    }
-
+public Mascota(String id, String nombre, String especie, String raza, int edadMeses, double peso,
+               CategoriaEdad categoriaEdad, Propietario propietario) {
+    this.id = id;
+    this.nombre = nombre;
+    this.raza = raza;
+    this.edadMeses = edadMeses;
+    this.peso = peso;
+    this.categoriaEdad = categoriaEdad;
+    this.propietario = propietario;
+}
 //------------------ GET AND SET ------------------------
     public String getId() {
         return id;
@@ -38,8 +38,16 @@ public abstract class Mascota {
         return especie;
     }
 
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
+
     public String getRaza() {
         return raza;
+    }
+
+    public void setRaza(String raza) {
+        this.raza = raza;
     }
 
     public int getEdad() {

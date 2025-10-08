@@ -17,19 +17,38 @@ public class Veterinaria {
     }
 
 //------------------ GET AND SET ------------------------
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    public String getNit(){
+
+    public String getNit() {
         return nit;
     }
-    public void setNit(String nit){
+
+    public void setNit(String nit) {
         this.nit = nit;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public LinkedList<Mascota> getMascotas() {
+        return mascotas;
+    }
+
+    public void setMascotas(LinkedList<Mascota> mascotas) {
+        this.mascotas = mascotas;
+    }
+
+    public LinkedList<Propietario> getPropietarios() {
+        return propietarios;
+    }
+
+    public void setPropietarios(LinkedList<Propietario> propietarios) {
+        this.propietarios = propietarios;
+    }
 
 
 //------------------ CRUD MASCOTA ------------------------
@@ -45,7 +64,7 @@ public class Veterinaria {
 
         // Crear nueva mascota (debes tener clases hijas de Mascota, por ejemplo Perro o Gato)
         // Si Mascota es abstracta, se instancia su subclase:
-        Mascota nuevaMascota = new Perro(id, nombre, especie, raza, edad, peso, propietario);
+        Mascota nuevaMascota = new Perro (id, nombre, especie, raza, edadMeses, peso, propietario);
         mascotas.add(nuevaMascota);
 
         // Agregarla también al propietario
