@@ -36,4 +36,10 @@ public class Perro extends Mascota{
         this.tamanio = tamanio;
     }
 
+
+    @Override
+    public String getEspecie() {
+        return "Perro";
+    }
+
 }

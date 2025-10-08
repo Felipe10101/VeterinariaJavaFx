@@ -35,4 +35,9 @@ public class Reptil extends Mascota{
     public void setTipoHabitat(TipoHabitat tipoHabitat) {
         this.tipoHabitat = tipoHabitat;
     }
+
+    @Override
+    public String getEspecie() {
+        return "Reptil";
+    }
 }

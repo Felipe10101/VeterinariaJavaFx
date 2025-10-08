@@ -53,7 +53,7 @@ public class Veterinaria {
 
 //------------------ CRUD MASCOTA ------------------------
 
-    public boolean almacenarMascota(String id, String nombre, String especie, String raza, int edad, int peso, Propietario propietario) {
+    public boolean almacenarMascota(String id, String nombre, String especie, String raza, int edadMeses, int peso, Propietario propietario) {
 
         // Evitar duplicados
         for (Mascota m : mascotas) {
@@ -62,8 +62,7 @@ public class Veterinaria {
             }
         }
 
-        // Crear nueva mascota (debes tener clases hijas de Mascota, por ejemplo Perro o Gato)
-        // Si Mascota es abstracta, se instancia su subclase:
+
         Mascota nuevaMascota = new Perro (id, nombre, especie, raza, edadMeses, peso, propietario);
         mascotas.add(nuevaMascota);
 
@@ -86,14 +85,14 @@ public class Veterinaria {
         return mascotas;
     }
 
-    public boolean actualizarMascota(String id, String nombre, String especie, String raza, int edad, int peso) {
+    public boolean actualizarMascota(String id, String nombre, String especie, String raza, int edadMeses, int peso) {
         Mascota m = obtenerMascota(id);
         if (m == null) return false;
 
         m.setNombre(nombre);
         m.setEspecie(especie);
         m.setRaza(raza);
-        m.setEdad(edad);
+        m.setEdadMeses(edadMeses);
         m.setPeso(peso);
         return true;
     }
@@ -168,10 +167,10 @@ public class Veterinaria {
             costoFinal += 5000; // otras especies
         }
 
-        // Incremento según la edad
-        if (mascota.getEdad() > 10) {
+        // Incremento según la edadMeses
+        if (mascota.getEdadMesesMeses() > 10) {
             costoFinal += 7000; // mascotas mayores de 10 años
-        } else if (mascota.getEdad() < 2) {
+        } else if (mascota.getEdadMeses() < 2) {
             costoFinal += 4000; // cachorros o muy jóvenes
         }
 

@@ -40,10 +40,10 @@ public Mascota(String id, String nombre, String especie, String raza, int edadMe
         this.raza = raza;
     }
 
-    public int getEdad() {
+    public int getEdadMeses() {
         return edadMeses;
     }
-    public void setEdad(int edadMeses) {
+    public void setEdadMeses(int edadMeses) {
         this.edadMeses = edadMeses;
     }
 
@@ -68,7 +68,9 @@ public Mascota(String id, String nombre, String especie, String raza, int edadMe
         this.propietario = propietario;
     }
 
-//------------------ TO STRING ------------------------
+    public abstract String getEspecie();
+
+    //------------------ TO STRING ------------------------
     @Override
     public String toString(){
         return "Mascota {\n Nombre: " + nombre + "\n Especie: " + "\n Raza: " + raza + "\n Edad: " + edadMeses + "\n Id: " + id + "\n Dueño: " + propietario.getNombre() + "\n" + "}";

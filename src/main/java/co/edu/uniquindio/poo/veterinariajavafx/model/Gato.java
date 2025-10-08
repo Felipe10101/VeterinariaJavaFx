@@ -38,4 +38,10 @@ public class Gato extends Mascota{
     public void setTipoDomesticacion(TipoDomesticacion tipoDomesticacion) {
         this.tipoDomesticacion = tipoDomesticacion;
     }
+
+
+    @Override
+    public String getEspecie() {
+        return "Gato";
+    }
 }

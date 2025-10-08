@@ -27,4 +27,9 @@ public class Ave extends Mascota{
     public void setCapacidadVuelo(boolean capacidadVuelo) {
         this.capacidadVuelo = capacidadVuelo;
     }
+
+    @Override
+    public String getEspecie() {
+        return "Ave";
+    }
 }
