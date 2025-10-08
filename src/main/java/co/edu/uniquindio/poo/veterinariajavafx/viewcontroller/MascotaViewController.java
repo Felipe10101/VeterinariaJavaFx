@@ -165,10 +165,48 @@ public class MascotaViewController {
             limpiarCamposMascota();
         }
     }
-
-
+    
     private Mascota buildMascota() {
-        Mascota mascota = new Mascota(txtId.getText(), txtNombre.getText(), txtApellido.getText());
+        String id = txtId.getText();
+        String nombre = txtNombre.getText();
+        String raza = txtRaza.getText();
+        int edadMeses = Integer.parseInt(txtEdad.getText());
+        double peso = Double.parseDouble(txtPeso.getText());
+        Propietario propietario = cbPropietario.getValue();
+
+        String tipo = cbEspecie.getValue(); // ejemplo: "Perro", "Gato", "Ave", "Reptil"
+        Mascota mascota = null;
+
+        switch (tipo) {
+            case "Perro":
+                boolean necesidadPaseos = chkPaseo.isSelected();
+                String tamanio = cbTamanio.getValue();
+                int nivelAdiestramiento = Integer.parseInt(txtNivelAdiestramiento.getText());
+                mascota = new Perro(id, nombre, raza, edadMeses, peso, propietario, tamanio, nivelAdiestramiento, necesidadPaseos);
+                break;
+
+            case "Gato":
+                boolean esIndoor = chkIndoor.isSelected();
+                double cantidadHorasSuenio = Double.parseDouble(txtHorasSueno.getText());
+                int nivelIndependencia = Integer.parseInt(txtNivelIndependencia.getText());
+                mascota = new Gato(id, nombre, raza, edadMeses, peso, propietario, esIndoor, cantidadHorasSuenio, nivelIndependencia);
+                break;
+
+            case "Ave":
+                String tipoPlumaje = txtPlumaje.getText();
+                boolean capacidadVuelo = chkVuelo.isSelected();
+                int cantidadSonidos = Integer.parseInt(txtSonidos.getText());
+                mascota = new Ave(id, nombre, raza, edadMeses, peso, propietario, tipoPlumaje, capacidadVuelo, cantidadSonidos);
+                break;
+
+            case "Reptil":
+                String habitat = cbHabitat.getValue();
+                double temperaturaOptima = Double.parseDouble(txtTemperatura.getText());
+                String nivelPeligro = cbPeligrosidad.getValue();
+                mascota = new Reptil(id, nombre, raza, edadMeses, peso, propietario, habitat, temperaturaOptima, nivelPeligro);
+                break;
+        }
+
         return mascota;
     }
 
