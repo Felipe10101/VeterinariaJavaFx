@@ -3,7 +3,6 @@ package co.edu.uniquindio.poo.veterinariajavafx.model;
 public abstract class Mascota {
     protected String id;
     protected String nombre;
-    protected String especie;
     protected String raza;
     protected int edadMeses;
     protected double peso;
