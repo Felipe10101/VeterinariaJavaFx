@@ -5,13 +5,15 @@ public class Ave extends Mascota{
     private boolean capacidadVuelo;
 
 //------------------ CONSTRUCTOR ------------------------
-    public Ave(String id, String nombre, String especie, String raza, int edad, int peso, Propietario propietario, String tipoPlumaje, boolean capacidadVuelo) {
-        super(id, nombre, especie, raza, edad, peso, propietario);
+
+
+    public Ave(String id, String nombre, String especie, String raza, int edadMeses, double peso, Propietario propietario, String tipoPlumaje, boolean capacidadVuelo) {
+        super(id, nombre, especie, raza, edadMeses, peso, propietario);
         this.tipoPlumaje = tipoPlumaje;
         this.capacidadVuelo = capacidadVuelo;
     }
 
-//------------------ GET AND SET ------------------------
+    //------------------ GET AND SET ------------------------
     public String getTipoPlumaje() {
         return tipoPlumaje;
     }

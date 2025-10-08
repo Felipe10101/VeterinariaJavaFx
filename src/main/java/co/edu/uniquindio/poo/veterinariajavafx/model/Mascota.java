@@ -11,16 +11,16 @@ public abstract class Mascota {
 
 
 //------------------ CONSTRUCTOR ------------------------
-    public Mascota(String id, String nombre, String especie,String raza, int edadMeses, double peso, Propietario propietario) {
-        this.id = id;
-        this.nombre = nombre;
-        this.raza = raza;
-        this.edadMeses = edadMeses;
-        this.peso = peso;
-        this.categoriaEdad  = categoriaEdad;
-        this.propietario = propietario;
-    }
-
+public Mascota(String id, String nombre, String especie, String raza, int edadMeses, double peso,
+               CategoriaEdad categoriaEdad, Propietario propietario) {
+    this.id = id;
+    this.nombre = nombre;
+    this.raza = raza;
+    this.edadMeses = edadMeses;
+    this.peso = peso;
+    this.categoriaEdad = categoriaEdad;
+    this.propietario = propietario;
+}
 //------------------ GET AND SET ------------------------
     public String getId() {
         return id;
@@ -33,12 +33,11 @@ public abstract class Mascota {
         this.nombre = nombre;
     }
 
-    public String getEspecie() {
-        return especie;
-    }
-
     public String getRaza() {
         return raza;
+    }
+    public void setRaza(String raza) {
+        this.raza = raza;
     }
 
     public int getEdad() {
@@ -72,7 +71,7 @@ public abstract class Mascota {
 //------------------ TO STRING ------------------------
     @Override
     public String toString(){
-        return "Mascota {\n Nombre: " + nombre + "\n Especie: " + especie + "\n Raza: " + raza + "\n Edad: " + edadMeses + "\n Id: " + id + "\n Dueño: " + propietario.getNombre() + "\n" + "}";
+        return "Mascota {\n Nombre: " + nombre + "\n Especie: " + "\n Raza: " + raza + "\n Edad: " + edadMeses + "\n Id: " + id + "\n Dueño: " + propietario.getNombre() + "\n" + "}";
     }
 
 }

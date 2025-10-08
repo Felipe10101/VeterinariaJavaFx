@@ -6,13 +6,15 @@ public class Perro extends Mascota{
     private Tamanio tamanio;
 
 //------------------ CONSTRUCTOR ------------------------
-    public Perro(String id, String nombre, String especie, String raza, int edad, int peso, Propietario propietario, String nivelAdiestramiento, String necesidadPaseos, Tamanio tamanio) {
-        super(id, nombre, especie, raza, edad, peso, propietario);
+
+    public Perro(String id, String nombre, String especie, String raza, int edadMeses, double peso, Propietario propietario, String nivelAdiestramiento, String necesidadPaseos, Tamanio tamanio) {
+        super(id, nombre, especie, raza, edadMeses, peso, propietario);
         this.nivelAdiestramiento = nivelAdiestramiento;
         this.necesidadPaseos = necesidadPaseos;
         this.tamanio = tamanio;
     }
-//------------------ GET AND SET ------------------------
+
+    //------------------ GET AND SET ------------------------
     public String getNivelAdiestramiento() {
         return nivelAdiestramiento;
     }

@@ -58,6 +58,6 @@ public class Propietario {
 //------------------ TO STRING ------------------------
     @Override
     public String toString(){
-        return "Propietario: {\n Nombre: " + nombre + "\n Telefono: " + telefono + "\n Direccion: " + direccion + "\n Id: " + id + "}\n";
+        return "Propietario: {\n Nombre: " + nombre + "\n Telefono: " + telefono + "\n Direccion: " + direccion + "\n Id: " +  "}\n";
     }
 }

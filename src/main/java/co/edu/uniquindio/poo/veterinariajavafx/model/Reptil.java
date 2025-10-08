@@ -7,14 +7,14 @@ public class Reptil extends Mascota{
     private TipoHabitat tipoHabitat;
 
 //------------------ CONSTRUCTOR ------------------------
-    public Reptil(String id, String nombre, String especie, String raza, int edad, int peso, Propietario propietario, int temperaturaOptima, NivelPeligro nivelPeligro, TipoHabitat tipoHabitat) {
-        super(id, nombre, especie, raza, edad, peso, propietario);
+    public Reptil(String id, String nombre, String especie, String raza, int edadMeses, double peso, Propietario propietario, int temperaturaOptima, NivelPeligro nivelPeligro, TipoHabitat tipoHabitat) {
+        super(id, nombre, especie, raza, edadMeses, peso, propietario);
         this.temperaturaOptima = temperaturaOptima;
         this.nivelPeligro = nivelPeligro;
         this.tipoHabitat = tipoHabitat;
     }
 
-//------------------ GET AND SET ------------------------
+    //------------------ GET AND SET ------------------------
     public int getTemperaturaOptima() {
         return temperaturaOptima;
     }

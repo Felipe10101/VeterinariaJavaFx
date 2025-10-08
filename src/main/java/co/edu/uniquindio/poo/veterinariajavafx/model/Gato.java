@@ -8,14 +8,16 @@ public class Gato extends Mascota{
     private TipoDomesticacion tipoDomesticacion;
 
 //------------------ CONSTRUCTOR ------------------------
-    public Gato(String id, String nombre, String especie, String raza, int edad, int peso, Propietario propietario, int cantidadHorasSuenio, String nivelIndependencia, TipoDomesticacion tipoDomesticacion) {
-        super(id, nombre, especie, raza, edad, peso, propietario);
+
+
+    public Gato(String id, String nombre, String especie, String raza, int edadMeses, double peso, Propietario propietario, int cantidadHorasSuenio, String nivelIndependencia, TipoDomesticacion tipoDomesticacion) {
+        super(id, nombre, especie, raza, edadMeses, peso, propietario);
         this.cantidadHorasSuenio = cantidadHorasSuenio;
         this.nivelIndependencia = nivelIndependencia;
         this.tipoDomesticacion = tipoDomesticacion;
     }
 
-//------------------ GET AND SET ------------------------
+    //------------------ GET AND SET ------------------------
     public int getCantidadHorasSuenio() {
         return cantidadHorasSuenio;
     }
