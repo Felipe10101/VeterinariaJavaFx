@@ -1,8 +1,7 @@
 package co.edu.uniquindio.poo.veterinariajavafx.model;
 
 public enum CategoriaEdad {
-    CACHORRO,
-    JOVEN,
+    CACHORRO_JOVEN,
     ADULTO,
     SENIOR
 }

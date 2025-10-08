@@ -68,7 +68,20 @@ public Mascota(String id, String nombre, String especie, String raza, int edadMe
         this.propietario = propietario;
     }
 
+
+//------------------ METODOS ------------------------
     public abstract String getEspecie();
+
+
+    public CategoriaEdad getCategoriaEdad() {
+        if (edadMeses < 12) {
+            return CategoriaEdad.CACHORRO_JOVEN;
+        } else if (edadMeses < 84) {
+            return CategoriaEdad.ADULTO;
+        } else {
+            return CategoriaEdad.SENIOR;
+        }
+    }
 
     //------------------ TO STRING ------------------------
     @Override

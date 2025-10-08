@@ -53,7 +53,7 @@ public class Veterinaria {
 
 //------------------ CRUD MASCOTA ------------------------
 
-    public boolean almacenarMascota(String id, String nombre, String especie, String raza, int edadMeses, int peso, Propietario propietario) {
+    public boolean almacenarMascota(String id, String nombre, String especie, String raza, int edadMeses, double peso, Propietario propietario) {
 
         // Evitar duplicados
         for (Mascota m : mascotas) {
@@ -85,7 +85,7 @@ public class Veterinaria {
         return mascotas;
     }
 
-    public boolean actualizarMascota(String id, String nombre, String especie, String raza, int edadMeses, int peso) {
+    public boolean actualizarMascota(String id, String nombre, String especie, String raza, int edadMeses, double peso) {
         Mascota m = obtenerMascota(id);
         if (m == null) return false;
 
